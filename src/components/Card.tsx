@@ -17,8 +17,6 @@ interface ProfileCard {
 //     quoteURL: string;
 // }) {
 function Card(props: ProfileCard) {
-    const [count, setCount] = useState(0);
-    const [name, setName] = useState('React');
     const [edit, setEdit] = useState(0);
     // const [firstName, setFirstName] = useState(props.name);
     // enter default values in useState for TS !! could throw null errors in some situations otherwise
