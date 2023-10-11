@@ -1,12 +1,9 @@
 article {
-    /* background-color: aquamarine; */
     border: 2px solid blue;
-    /* color: brown; */
-    /* display: flex; */
+    border-radius: 5px;
     margin: auto;
     max-inline-size: 65ch;
-    padding-block: 5vb;
-    padding-inline: 5vi;
+    padding: 1rem;
 }
 
 .lessonMaterial {
@@ -15,12 +12,9 @@ article {
     margin: 1rem 0;
 }
 
-section {
-    border: 2px solid rosybrown;
-}
-
 .btn {
+    border-radius: 10px;
+    cursor: pointer;
     inline-size: max-content;
     padding: 0.5rem;
-    cursor: pointer;
 }
