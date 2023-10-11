@@ -24,7 +24,7 @@ interface EditFormProps {
 
 // const EditForm: any = () => {};
 const EditForm = (props: EditFormProps) => (
-    <section>
+    <>
         {/* after edit btn press */}
         <form action="#" onSubmit={props.handleSubmit}>
             {/* <label htmlFor=""></label> */}
@@ -33,7 +33,7 @@ const EditForm = (props: EditFormProps) => (
                 type="text"
                 name="firstName"
                 placeholder="First Name"
-                // value={props.profileCard.firstName}
+                defaultValue={props.profileCard.firstName}
             />
             {/* add appropriate syntax for field */}
             {/* <label htmlFor=""></label> */}
@@ -61,12 +61,14 @@ const EditForm = (props: EditFormProps) => (
                 type="text"
                 name="quoteAuthor"
                 placeholder="Author of Quote"
+                defaultValue={props.profileCard.quoteAuthor}
             />
             <input
                 onChange={props.handleChange}
                 type="text"
                 name="quoteURL"
                 placeholder="URL where others can find the Quote"
+                defaultValue={props.profileCard.quoteURL}
             />
             <div>
                 <button className={styles.btn} type="submit">
@@ -75,7 +77,7 @@ const EditForm = (props: EditFormProps) => (
                 <button className={styles.btn}>Discard Update</button>
             </div>
         </form>
-    </section>
+    </>
 );
 
 export default EditForm;
