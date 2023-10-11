@@ -1,0 +1,10 @@
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.btn {
+    inline-size: max-content;
+    padding: 0.5rem;
+    cursor: pointer;
+}

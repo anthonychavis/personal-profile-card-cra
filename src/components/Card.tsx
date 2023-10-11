@@ -3,27 +3,31 @@ import styles from './Card.module.css';
 import Name from './Name';
 import Bio from './Bio';
 import Quote from './Quote';
+import EditForm from './EditForm';
 
 interface ProfileCard {
     [key: string]: string;
 }
 
-// function Card() {
-function Card(props: {
-    name: string;
-    bio: string;
-    quote: string;
-    quoteAuthor: string;
-    quoteURL: string;
-}) {
+// function Card(props: {
+//     name: string;
+//     bio: string;
+//     quote: string;
+//     quoteAuthor: string;
+//     quoteURL: string;
+// }) {
+function Card(props: ProfileCard) {
     const [count, setCount] = useState(0);
     const [name, setName] = useState('React');
     const [edit, setEdit] = useState(0);
+    // const [firstName, setFirstName] = useState(props.name);
     // enter default values in useState for TS !! could throw null errors in some situations otherwise
     const [profileCard, setProfileCard] = useState<ProfileCard>({
-        firstName: 'enter name',
-        bio: 'enter bio',
-        favQuote: 'enter quote',
+        firstName: props.name,
+        bio: props.bio,
+        favQuote: props.quote,
+        quoteAuthor: props.quoteAuthor,
+        quoteURL: props.quoteURL,
     });
 
     // render what's typed by user
@@ -42,7 +46,7 @@ function Card(props: {
 
     // useEffect??
     const editBtn = () => setEdit(prev => prev + 1);
-    // useEffect??
+    // // useEffect??
     const updateBtn = (e: { preventDefault: () => void }) => {
         e.preventDefault();
         setEdit(prev => prev - 1);
@@ -52,54 +56,32 @@ function Card(props: {
         <>
             <article>
                 <header>
-                    <Name name={props.name} />
+                    <Name name={profileCard.firstName} />
+                    {/* <Name name={props.name} /> */}
                 </header>
-                <Bio bio={props.bio} />
+                <Bio bio={profileCard.bio} />
+                {/* <Bio bio={props.bio} /> */}
                 <Quote
-                    quote={props.quote}
-                    quoteAuthor={props.quoteAuthor}
-                    quoteURL={props.quoteURL}
+                    quote={profileCard.favQuote}
+                    quoteAuthor={profileCard.quoteAuthor}
+                    quoteURL={profileCard.quoteURL}
                 />
                 <button className={styles.btn} onClick={editBtn}>
                     Edit Profile Card
                 </button>
                 {!edit ? null : (
                     <section>
-                        {/* after edit btn press */}
-                        <form action="" onSubmit={handleSubmit}>
-                            {/* <label htmlFor=""></label> */}
-                            <input
-                                onChange={handleChange}
-                                type="text"
-                                name="firstName"
-                                placeholder="First Name"
-                                value={profileCard.firstName}
-                            />
-                            {/* add appropriate syntax for field */}
-                            {/* <label htmlFor=""></label> */}
-                            <textarea
-                                rows={5}
-                                cols={50}
-                                onChange={handleChange}
-                                // type="text"
-                                name="bio"
-                                placeholder="Bio"
-                                value={profileCard.bio}
-                            >
-                                {/* {profileCard.bio} */}
-                            </textarea>
-                            {/* <label htmlFor=""></label> */}
-                            <input
-                                onChange={handleChange}
-                                type="text"
-                                name="favQuote"
-                                placeholder="Favorite Quote"
-                                value={profileCard.favQuote}
-                            />
-                            <button className={styles.btn} type="submit">
-                                Update Profile Card
-                            </button>
-                        </form>
+                        <EditForm
+                            handleSubmit={handleSubmit}
+                            handleChange={handleChange}
+                            profileCard={{
+                                firstName: '',
+                                bio: '',
+                                favQuote: '',
+                                quoteAuthor: '',
+                                // quoteURL: '',
+                            }}
+                        />
                     </section>
                 )}
             </article>
@@ -115,7 +97,7 @@ function Card(props: {
                     </button>
                     <button
                         className={styles.btn}
-                        onClick={() => setCount(count + 1)}
+                        onClick={() => setCount(() => count + 1)}
                     >
                         {count}
                     </button>

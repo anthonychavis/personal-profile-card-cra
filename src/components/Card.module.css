@@ -10,7 +10,6 @@ article {
 }
 
 .lessonMaterial {
-    /* border: 2px solid rosybrown; */
     background-color: lightblue;
     font-size: 2rem;
     margin: 1rem 0;
@@ -20,17 +19,8 @@ section {
     border: 2px solid rosybrown;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-}
-form button {
-    width: max-content;
-    padding: 0.5rem;
-}
-
 .btn {
+    inline-size: max-content;
+    padding: 0.5rem;
     cursor: pointer;
-    /* background-color: yellow; */
 }
