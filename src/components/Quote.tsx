@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Quote.module.css';
 
 function Quote({
     quote,
@@ -12,12 +13,16 @@ function Quote({
     return (
         <figure>
             <blockquote cite="">
-                <p>{quote}</p>
+                <p className={styles.wordWrap}>{quote}</p>
             </blockquote>
             <figcaption>
-                <cite>
-                    <a href={quoteURL}>{quoteAuthor}</a>
-                </cite>
+                {/* {quoteURL ? (
+                    <cite>
+                        <a className={styles.wordWrap} href={quoteURL}>{quoteAuthor}</a>
+                    </cite>
+                ) : ( */}
+                <p className={styles.wordWrap}>{quoteAuthor}</p>
+                {/* )} */}
             </figcaption>
         </figure>
     );
