@@ -44,10 +44,8 @@ const EditForm = (props: EditFormProps) => (
                 // type="text"
                 name="bio"
                 placeholder="Bio"
-                // value={props.profileCard.bio}
-            >
-                {props.profileCard.bio}
-            </textarea>
+                defaultValue={props.profileCard.bio}
+            ></textarea>
             {/* <label htmlFor=""></label> */}
             <input
                 onChange={props.handleChange}
