@@ -55,53 +55,36 @@ function Card(props: ProfileCard) {
     return (
         <>
             <article>
-                <header>
-                    <Name name={profileCard.firstName} />
-                    {/* <Name name={props.name} /> */}
-                </header>
-                <Bio bio={profileCard.bio} />
-                {/* <Bio bio={props.bio} /> */}
-                <Quote
-                    quote={profileCard.favQuote}
-                    quoteAuthor={profileCard.quoteAuthor}
-                    quoteURL={profileCard.quoteURL}
-                />
-                <button className={styles.btn} onClick={editBtn}>
-                    Edit Profile Card
-                </button>
-                {!edit ? null : (
-                    <section>
-                        <EditForm
-                            handleSubmit={handleSubmit}
-                            handleChange={handleChange}
-                            profileCard={{
-                                firstName: '',
-                                bio: '',
-                                favQuote: '',
-                                quoteAuthor: '',
-                                // quoteURL: '',
-                            }}
+                {!edit ? (
+                    <>
+                        <header>
+                            <Name name={profileCard.firstName} />
+                            {/* <Name name={props.name} /> */}
+                        </header>
+                        <Bio bio={profileCard.bio} />
+                        {/* <Bio bio={props.bio} /> */}
+                        <Quote
+                            quote={profileCard.favQuote}
+                            quoteAuthor={profileCard.quoteAuthor}
+                            quoteURL={profileCard.quoteURL}
                         />
-                    </section>
+                        <button className={styles.btn} onClick={editBtn}>
+                            Edit Profile Card
+                        </button>
+                    </>
+                ) : (
+                    <EditForm
+                        handleSubmit={handleSubmit}
+                        handleChange={handleChange}
+                        profileCard={{
+                            firstName: props.name,
+                            bio: props.bio,
+                            favQuote: props.quote,
+                            quoteAuthor: props.quoteAuthor,
+                            quoteURL: props.quoteURL,
+                        }}
+                    />
                 )}
-            </article>
-
-            <article>
-                <section className={styles.lessonMaterial}>
-                    <p className={styles.lessonMaterial}>{name}</p>
-                    <button
-                        className={styles.btn}
-                        onClick={() => setName(() => 'React State')}
-                    >
-                        Name change
-                    </button>
-                    <button
-                        className={styles.btn}
-                        onClick={() => setCount(() => count + 1)}
-                    >
-                        {count}
-                    </button>
-                </section>
             </article>
         </>
     );
