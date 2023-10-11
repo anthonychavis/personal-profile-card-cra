@@ -13,6 +13,7 @@ interface EditFormProps {
     handleChange: React.ChangeEventHandler<
         HTMLInputElement | HTMLTextAreaElement
     >;
+    // handleDiscard: any;
     profileCard: {
         firstName: string;
         bio: string;
@@ -27,8 +28,10 @@ const EditForm = (props: EditFormProps) => (
     <>
         {/* after edit btn press */}
         <form action="#" onSubmit={props.handleSubmit}>
-            {/* <label htmlFor=""></label> */}
+            <label htmlFor="name">First Name</label>
             <input
+                autoComplete="given-name"
+                id="name"
                 onChange={props.handleChange}
                 type="text"
                 name="firstName"
@@ -36,35 +39,41 @@ const EditForm = (props: EditFormProps) => (
                 defaultValue={props.profileCard.firstName}
             />
             {/* add appropriate syntax for field */}
-            {/* <label htmlFor=""></label> */}
+            <label htmlFor="bio">Bio</label>
             <textarea
                 rows={5}
                 cols={50}
+                id="bio"
                 onChange={props.handleChange}
                 // type="text"
                 name="bio"
                 placeholder="Bio"
                 defaultValue={props.profileCard.bio}
             ></textarea>
-            {/* <label htmlFor=""></label> */}
+            <label htmlFor="quote">Favorite Quote</label>
             <textarea
                 rows={5}
                 cols={50}
+                id="quote"
                 onChange={props.handleChange}
                 // type="text"
                 name="favQuote"
                 placeholder="Favorite Quote"
                 defaultValue={props.profileCard.favQuote}
             ></textarea>
+            <label htmlFor="author">Author of Favorite Quote</label>
             <input
                 onChange={props.handleChange}
+                id="author"
                 type="text"
                 name="quoteAuthor"
                 placeholder="Author of Quote"
                 defaultValue={props.profileCard.quoteAuthor}
             />
+            <label htmlFor="link">Link to Reference Quote, if available</label>
             <input
                 onChange={props.handleChange}
+                id="link"
                 type="text"
                 name="quoteURL"
                 placeholder="URL where others can find the Quote"
