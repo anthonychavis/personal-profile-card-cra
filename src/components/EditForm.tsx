@@ -26,7 +26,7 @@ interface EditFormProps {
 const EditForm = (props: EditFormProps) => (
     <section>
         {/* after edit btn press */}
-        <form action="" onSubmit={props.handleSubmit}>
+        <form action="#" onSubmit={props.handleSubmit}>
             {/* <label htmlFor=""></label> */}
             <input
                 onChange={props.handleChange}
@@ -47,12 +47,15 @@ const EditForm = (props: EditFormProps) => (
                 defaultValue={props.profileCard.bio}
             ></textarea>
             {/* <label htmlFor=""></label> */}
-            <input
+            <textarea
+                rows={5}
+                cols={50}
                 onChange={props.handleChange}
-                type="text"
+                // type="text"
                 name="favQuote"
                 placeholder="Favorite Quote"
-            />
+                defaultValue={props.profileCard.favQuote}
+            ></textarea>
             <input
                 onChange={props.handleChange}
                 type="text"
@@ -65,9 +68,12 @@ const EditForm = (props: EditFormProps) => (
                 name="quoteURL"
                 placeholder="URL where others can find the Quote"
             />
-            <button className={styles.btn} type="submit">
-                Update Profile Card
-            </button>
+            <div>
+                <button className={styles.btn} type="submit">
+                    Update Profile Card
+                </button>
+                <button className={styles.btn}>Discard Update</button>
+            </div>
         </form>
     </section>
 );
