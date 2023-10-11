@@ -3,10 +3,24 @@ form {
     flex-direction: column;
 }
 
+input,
+textarea {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin-block-end: 0.5rem;
+}
+input:focus,
+textarea:focus,
+input:focus-visible {
+    background-color: #e0f2fe;
+    border: 2px solid #007bff;
+}
+
 .btn {
     border-radius: 10px;
     cursor: pointer;
     inline-size: max-content;
+    font-size: inherit;
     padding: 0.5rem;
 }
 .btn:first-child {
