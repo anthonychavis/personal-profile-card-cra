@@ -1,10 +1,15 @@
 form {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
 }
+
 .btn {
+    border-radius: 10px;
+    cursor: pointer;
     inline-size: max-content;
     padding: 0.5rem;
-    cursor: pointer;
+}
+.btn:first-child {
+    background-color: #e8d317;
+    margin-inline-end: 1rem;
 }
