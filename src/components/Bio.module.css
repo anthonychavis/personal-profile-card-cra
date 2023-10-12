@@ -3,4 +3,5 @@
     hyphens: auto;
     margin-block-start: 2vb;
     overflow-wrap: break-word;
+    white-space: pre-wrap;
 }

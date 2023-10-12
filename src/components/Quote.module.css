@@ -2,6 +2,7 @@
     font-size: 105%;
     hyphens: auto;
     overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .bq {
