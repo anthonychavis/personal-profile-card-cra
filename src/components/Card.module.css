@@ -4,9 +4,10 @@ article {
     border-radius: 5px;
     color: hsl(36, 87%, 98%);
     line-height: 1.5;
-    margin: 0 auto 1rem;
+    margin: 1rem auto;
     max-inline-size: 65ch;
-    padding: 1rem;
+    padding-inline: 3vi;
+    padding-block: 2.5vb;
 }
 
 .btn {
@@ -16,5 +17,11 @@ article {
     cursor: pointer;
     font-size: inherit;
     inline-size: max-content;
+    margin-block-start: 0.8vb;
     padding: 0.5rem;
+    transition: background-color 200ms ease-out;
+}
+.btn:hover,
+.btn:focus {
+    background-color: #e8d317;
 }
