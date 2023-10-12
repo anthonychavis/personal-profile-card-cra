@@ -1,14 +1,18 @@
 article {
-    border: 2px solid blue;
+    background-color: #8a6f46;
+    border: 15px inset #2e3f70;
     border-radius: 5px;
+    color: hsl(36, 87%, 98%);
     line-height: 1.5;
-    margin: auto;
+    margin: 0 auto 1rem;
     max-inline-size: 65ch;
     padding: 1rem;
 }
 
 .btn {
+    background-color: #573f1b;
     border-radius: 10px;
+    color: inherit;
     cursor: pointer;
     font-size: inherit;
     inline-size: max-content;

@@ -5,8 +5,10 @@ form {
 
 input,
 textarea {
+    background-color: #f0e5d5;
     border-radius: 8px;
     border: 1px inset black;
+    color: #332106;
     font-size: 1.15rem;
     line-height: 1.5;
     margin-block-end: 0.5rem;
@@ -15,23 +17,32 @@ textarea {
 input:focus,
 textarea:focus {
     background-color: #e0f2fe;
-    border: 1px ridge #007bff;
+    border: 1px ridge hsl(187, 67%, 55%);
     border-radius: 8px;
 }
 input:focus-visible,
 textarea:focus-visible {
     border-radius: 8px;
-    outline: #007bff ridge 2px;
+    outline: hsl(187, 67%, 55%) ridge 4px;
 }
 
 .btn {
+    background-color: #f0e5d5;
     border-radius: 10px;
+    color: #332106;
     cursor: pointer;
     inline-size: max-content;
     font-size: inherit;
     padding: 0.5rem;
+    transition: background-color 200ms ease-out;
 }
 .btn:first-child {
     background-color: #e8d317;
+    background-color: hsl(187, 67%, 55%);
     margin-inline-end: 1rem;
+}
+.btn:hover,
+.btn:focus {
+    background-color: hsl(187, 67%, 55%);
+    background-color: #e8d317;
 }
