@@ -47,7 +47,9 @@ const EditForm = (props: EditFormProps) => {
 
     return (
         <form action="#" onSubmit={handleSubmit}>
-            <label htmlFor="name">First Name</label>
+            <label className={styles.label} htmlFor="name">
+                First Name
+            </label>
             <input
                 autoComplete="given-name"
                 id="name"
@@ -59,7 +61,9 @@ const EditForm = (props: EditFormProps) => {
             />
 
             {/* add appropriate syntax for field */}
-            <label htmlFor="bio">Bio</label>
+            <label className={styles.label} htmlFor="bio">
+                Bio
+            </label>
             <textarea
                 rows={5}
                 cols={50}
@@ -70,7 +74,9 @@ const EditForm = (props: EditFormProps) => {
                 defaultValue={props.profileCardProps.bio}
             ></textarea>
 
-            <label htmlFor="quote">Favorite Quote</label>
+            <label className={styles.label} htmlFor="quote">
+                Favorite Quote
+            </label>
             <textarea
                 rows={5}
                 cols={50}
@@ -81,7 +87,9 @@ const EditForm = (props: EditFormProps) => {
                 defaultValue={props.profileCardProps.favQuote}
             ></textarea>
 
-            <label htmlFor="author">Author of Favorite Quote</label>
+            <label className={styles.label} htmlFor="author">
+                Author of Favorite Quote
+            </label>
             <input
                 onChange={handleChange}
                 id="author"
@@ -91,7 +99,9 @@ const EditForm = (props: EditFormProps) => {
                 defaultValue={props.profileCardProps.quoteAuthor}
             />
 
-            <label htmlFor="link">Link to Reference Quote, if available</label>
+            <label className={styles.label} htmlFor="link">
+                Link to Reference Quote, if available
+            </label>
             <input
                 onChange={handleChange}
                 id="link"

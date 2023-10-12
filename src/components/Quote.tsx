@@ -12,7 +12,7 @@ function Quote({
 }) {
     return (
         <figure>
-            <blockquote cite="">
+            <blockquote className={`${styles.bq}`} cite="">
                 <p className={styles.wordWrap}>{quote}</p>
             </blockquote>
             <figcaption>
@@ -21,7 +21,9 @@ function Quote({
                         <a className={styles.wordWrap} href={quoteURL}>{quoteAuthor}</a>
                     </cite>
                 ) : ( */}
-                <p className={styles.wordWrap}>{quoteAuthor}</p>
+                <p className={`${styles.wordWrap} ${styles.author}`}>
+                    {quoteAuthor}
+                </p>
                 {/* )} */}
             </figcaption>
         </figure>
