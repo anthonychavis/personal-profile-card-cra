@@ -1,5 +1,6 @@
 .wordWrap {
     font-size: 105%;
     hyphens: auto;
+    margin-block-start: 2vb;
     overflow-wrap: break-word;
 }
