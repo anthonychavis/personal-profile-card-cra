@@ -10,8 +10,10 @@ interface EditFormProps {
     setProfileCardProps: React.Dispatch<React.SetStateAction<ProfileCardVals>>;
 }
 
-// reset form vals !!
-const discardBtn = (param: EditFormProps) => param.setEdit(prev => prev - 1);
+const discardBtn = (propObj: EditFormProps) => {
+    propObj.setFormVals(propObj.profileCardProps);
+    propObj.setEdit(prev => prev - 1);
+};
 
 const EditForm = (props: EditFormProps) => {
     // render what's typed by user
