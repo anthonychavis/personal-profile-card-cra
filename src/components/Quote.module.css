@@ -1,4 +1,9 @@
+blockquote {
+    font-style: italic;
+}
+
 .wordWrap {
+    font-size: 105%;
     hyphens: auto;
     overflow-wrap: break-word;
 }

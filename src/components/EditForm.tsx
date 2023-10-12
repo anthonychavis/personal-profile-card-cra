@@ -1,83 +1,113 @@
 import React from 'react';
 import styles from './EditForm.module.css';
-
-// const updateBtn = (e: { preventDefault: () => void }) => {
-//     e.preventDefault();
-//     setEdit(prev => prev - 1);
-// };
-
-// const handleSubmit: React.FormEventHandler<HTMLFormElement> = e => updateBtn(e);
+import { ProfileCardVals } from './Card';
 
 interface EditFormProps {
-    handleSubmit: React.FormEventHandler<HTMLFormElement>;
-    handleChange: React.ChangeEventHandler<
-        HTMLInputElement | HTMLTextAreaElement
-    >;
-    profileCard: {
-        firstName: string;
-        bio: string;
-        favQuote: string;
-        quoteAuthor: string;
-        quoteURL?: string;
-    };
+    setEdit: React.Dispatch<React.SetStateAction<number>>;
+    formVals: ProfileCardVals;
+    setFormVals: React.Dispatch<React.SetStateAction<ProfileCardVals>>;
+    profileCardProps: ProfileCardVals;
+    setProfileCardProps: React.Dispatch<React.SetStateAction<ProfileCardVals>>;
 }
 
-// const EditForm: any = () => {};
-const EditForm = (props: EditFormProps) => (
-    <>
-        {/* after edit btn press */}
-        <form action="#" onSubmit={props.handleSubmit}>
-            {/* <label htmlFor=""></label> */}
+const discardBtn = (propObj: EditFormProps) => {
+    propObj.setFormVals(propObj.profileCardProps);
+    propObj.setEdit(prev => prev - 1);
+};
+
+const EditForm = (props: EditFormProps) => {
+    // render what's typed by user
+    const handleChange: React.ChangeEventHandler<
+        HTMLInputElement | HTMLTextAreaElement
+    > = ({ target }) => {
+        // console.log(currentTarget);
+
+        props.setFormVals(prevProfileCard => ({
+            ...prevProfileCard,
+            [target.name]: target.value,
+        }));
+    };
+
+    // // useEffect??
+    const updateBtn = (e: { preventDefault: () => void }) => {
+        e.preventDefault();
+        props.setProfileCardProps(() => props.formVals);
+        props.setEdit(prev => prev - 1);
+    };
+
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> = e =>
+        updateBtn(e);
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="name">First Name</label>
             <input
-                onChange={props.handleChange}
+                autoComplete="given-name"
+                id="name"
+                onChange={handleChange}
                 type="text"
                 name="firstName"
                 placeholder="First Name"
-                defaultValue={props.profileCard.firstName}
+                defaultValue={props.profileCardProps.firstName}
             />
+
             {/* add appropriate syntax for field */}
-            {/* <label htmlFor=""></label> */}
+            <label htmlFor="bio">Bio</label>
             <textarea
                 rows={5}
                 cols={50}
-                onChange={props.handleChange}
-                // type="text"
+                id="bio"
+                onChange={handleChange}
                 name="bio"
                 placeholder="Bio"
-                defaultValue={props.profileCard.bio}
+                defaultValue={props.profileCardProps.bio}
             ></textarea>
-            {/* <label htmlFor=""></label> */}
+
+            <label htmlFor="quote">Favorite Quote</label>
             <textarea
                 rows={5}
                 cols={50}
-                onChange={props.handleChange}
-                // type="text"
+                id="quote"
+                onChange={handleChange}
                 name="favQuote"
                 placeholder="Favorite Quote"
-                defaultValue={props.profileCard.favQuote}
+                defaultValue={props.profileCardProps.favQuote}
             ></textarea>
+
+            <label htmlFor="author">Author of Favorite Quote</label>
             <input
-                onChange={props.handleChange}
+                onChange={handleChange}
+                id="author"
                 type="text"
                 name="quoteAuthor"
                 placeholder="Author of Quote"
-                defaultValue={props.profileCard.quoteAuthor}
+                defaultValue={props.profileCardProps.quoteAuthor}
             />
+
+            <label htmlFor="link">Link to Reference Quote, if available</label>
             <input
-                onChange={props.handleChange}
+                onChange={handleChange}
+                id="link"
                 type="text"
                 name="quoteURL"
                 placeholder="URL where others can find the Quote"
-                defaultValue={props.profileCard.quoteURL}
+                defaultValue={props.profileCardProps.quoteURL}
             />
+
             <div>
                 <button className={styles.btn} type="submit">
                     Update Profile Card
                 </button>
-                <button className={styles.btn}>Discard Update</button>
+                <button
+                    type="button"
+                    onClick={() => discardBtn(props)}
+                    className={styles.btn}
+                >
+                    Discard Update
+                </button>
             </div>
         </form>
-    </>
-);
+    );
+};
 
 export default EditForm;

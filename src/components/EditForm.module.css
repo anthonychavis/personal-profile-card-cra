@@ -3,10 +3,32 @@ form {
     flex-direction: column;
 }
 
+input,
+textarea {
+    border-radius: 8px;
+    border: 1px inset black;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin-block-end: 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+input:focus,
+textarea:focus {
+    background-color: #e0f2fe;
+    border: 1px ridge #007bff;
+    border-radius: 8px;
+}
+input:focus-visible,
+textarea:focus-visible {
+    border-radius: 8px;
+    outline: #007bff ridge 2px;
+}
+
 .btn {
     border-radius: 10px;
     cursor: pointer;
     inline-size: max-content;
+    font-size: inherit;
     padding: 0.5rem;
 }
 .btn:first-child {

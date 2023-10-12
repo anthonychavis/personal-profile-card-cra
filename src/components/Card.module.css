@@ -1,20 +1,16 @@
 article {
     border: 2px solid blue;
     border-radius: 5px;
+    line-height: 1.5;
     margin: auto;
     max-inline-size: 65ch;
     padding: 1rem;
 }
 
-.lessonMaterial {
-    background-color: lightblue;
-    font-size: 2rem;
-    margin: 1rem 0;
-}
-
 .btn {
     border-radius: 10px;
     cursor: pointer;
+    font-size: inherit;
     inline-size: max-content;
     padding: 0.5rem;
 }
