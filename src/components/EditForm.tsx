@@ -14,6 +14,13 @@ const discardBtn = (propObj: EditFormProps) => {
     propObj.setFormVals(propObj.profileCardProps);
     propObj.setEdit(prev => prev - 1);
 };
+const handleDiscard = (
+    e: { preventDefault: () => void },
+    propsObj: EditFormProps
+) => {
+    e.preventDefault();
+    discardBtn(propsObj);
+};
 
 const EditForm = (props: EditFormProps) => {
     // render what's typed by user
@@ -39,7 +46,7 @@ const EditForm = (props: EditFormProps) => {
         updateBtn(e);
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form action="#" onSubmit={handleSubmit}>
             <label htmlFor="name">First Name</label>
             <input
                 autoComplete="given-name"
@@ -100,7 +107,7 @@ const EditForm = (props: EditFormProps) => {
                 </button>
                 <button
                     type="button"
-                    onClick={() => discardBtn(props)}
+                    onClick={e => handleDiscard(e, props)}
                     className={styles.btn}
                 >
                     Discard Update
