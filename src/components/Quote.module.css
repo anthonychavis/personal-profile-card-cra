@@ -1,9 +1,17 @@
-blockquote {
-    font-style: italic;
-}
-
 .wordWrap {
     font-size: 105%;
     hyphens: auto;
     overflow-wrap: break-word;
+}
+
+.bq {
+    font-style: italic;
+    margin-block-start: 2vb;
+    margin-inline-start: 4vi;
+    margin-inline-end: 1vi;
+}
+.author {
+    margin-block-start: 0.5vb;
+    margin-block-end: 2vb;
+    margin-inline-start: 2.5vi;
 }
