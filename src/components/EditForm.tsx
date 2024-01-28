@@ -6,12 +6,12 @@ interface EditFormProps {
     setEdit: React.Dispatch<React.SetStateAction<number>>;
     formVals: ProfileCardVals;
     setFormVals: React.Dispatch<React.SetStateAction<ProfileCardVals>>;
-    profileCardProps: ProfileCardVals;
-    setProfileCardProps: React.Dispatch<React.SetStateAction<ProfileCardVals>>;
+    profileCardState: ProfileCardVals;
+    setProfileCardState: React.Dispatch<React.SetStateAction<ProfileCardVals>>;
 }
 
 const discardBtn = (propObj: EditFormProps) => {
-    propObj.setFormVals(propObj.profileCardProps);
+    propObj.setFormVals(propObj.profileCardState);
     propObj.setEdit(prev => prev - 1);
 };
 const handleDiscard = (
@@ -35,10 +35,9 @@ const EditForm = (props: EditFormProps) => {
         }));
     };
 
-    // // useEffect??
     const updateBtn = (e: { preventDefault: () => void }) => {
         e.preventDefault();
-        props.setProfileCardProps(() => props.formVals);
+        props.setProfileCardState(() => props.formVals);
         props.setEdit(prev => prev - 1);
     };
 
@@ -57,7 +56,7 @@ const EditForm = (props: EditFormProps) => {
                 type="text"
                 name="firstName"
                 placeholder="First Name"
-                defaultValue={props.profileCardProps.firstName}
+                defaultValue={props.profileCardState.firstName}
             />
 
             {/* add appropriate syntax for field */}
@@ -71,7 +70,7 @@ const EditForm = (props: EditFormProps) => {
                 onChange={handleChange}
                 name="bio"
                 placeholder="Bio"
-                defaultValue={props.profileCardProps.bio}
+                defaultValue={props.profileCardState.bio}
             ></textarea>
 
             <label className={styles.label} htmlFor="quote">
@@ -84,7 +83,7 @@ const EditForm = (props: EditFormProps) => {
                 onChange={handleChange}
                 name="favQuote"
                 placeholder="Favorite Quote"
-                defaultValue={props.profileCardProps.favQuote}
+                defaultValue={props.profileCardState.favQuote}
             ></textarea>
 
             <label className={styles.label} htmlFor="author">
@@ -96,7 +95,7 @@ const EditForm = (props: EditFormProps) => {
                 type="text"
                 name="quoteAuthor"
                 placeholder="Author of Quote"
-                defaultValue={props.profileCardProps.quoteAuthor}
+                defaultValue={props.profileCardState.quoteAuthor}
             />
 
             <label className={styles.label} htmlFor="link">
@@ -108,7 +107,7 @@ const EditForm = (props: EditFormProps) => {
                 type="text"
                 name="quoteURL"
                 placeholder="URL where others can find the Quote"
-                defaultValue={props.profileCardProps.quoteURL}
+                defaultValue={props.profileCardState.quoteURL}
             />
 
             <div>
