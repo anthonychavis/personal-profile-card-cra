@@ -5,8 +5,12 @@ import Bio from './Bio';
 import Quote from './Quote';
 import EditForm from './EditForm';
 
-interface ProfileCard {
-    [key: string]: string;
+interface ProfileCardProps {
+    name: string;
+    bio: string;
+    quote: string;
+    quoteAuthor: string;
+    quoteURL: string;
 }
 
 export interface ProfileCardVals {
@@ -17,23 +21,16 @@ export interface ProfileCardVals {
     quoteURL: string;
 }
 
-// function Card(props: {
-//     name: string;
-//     bio: string;
-//     quote: string;
-//     quoteAuthor: string;
-//     quoteURL: string;
-// }) {
-function Card(props: ProfileCard) {
+function Card(props: ProfileCardProps) {
     const [edit, setEdit] = useState(0);
-    const [profileCardProps, setProfileCardProps] = useState({
+    const [profileCardState, setProfileCardState] = useState({
         firstName: props.name,
         bio: props.bio,
         favQuote: '"' + props.quote + '"',
         quoteAuthor: props.quoteAuthor,
         quoteURL: props.quoteURL,
     });
-    const [formVals, setFormVals] = useState(profileCardProps);
+    const [formVals, setFormVals] = useState(profileCardState);
 
     const editBtn = () => setEdit(prev => prev + 1);
 
@@ -42,13 +39,13 @@ function Card(props: ProfileCard) {
             {!edit ? (
                 <>
                     <header>
-                        <Name name={profileCardProps.firstName} />
+                        <Name name={profileCardState.firstName} />
                     </header>
-                    <Bio bio={profileCardProps.bio} />
+                    <Bio bio={profileCardState.bio} />
                     <Quote
-                        quote={profileCardProps.favQuote}
-                        quoteAuthor={profileCardProps.quoteAuthor}
-                        quoteURL={profileCardProps.quoteURL}
+                        quote={profileCardState.favQuote}
+                        quoteAuthor={profileCardState.quoteAuthor}
+                        quoteURL={profileCardState.quoteURL}
                     />
                     <button className={styles.btn} onClick={editBtn}>
                         Edit Profile Card
@@ -59,8 +56,8 @@ function Card(props: ProfileCard) {
                     setEdit={setEdit}
                     formVals={formVals}
                     setFormVals={setFormVals}
-                    profileCardProps={profileCardProps}
-                    setProfileCardProps={setProfileCardProps}
+                    profileCardState={profileCardState}
+                    setProfileCardState={setProfileCardState}
                 />
             )}
         </article>
@@ -68,4 +65,3 @@ function Card(props: ProfileCard) {
 }
 
 export default Card;
-// review typing to restructure !!
