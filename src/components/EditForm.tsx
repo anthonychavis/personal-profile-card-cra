@@ -58,6 +58,7 @@ const EditForm = (props: EditFormProps) => {
                 placeholder="First Name"
                 defaultValue={props.profileCardState.firstName}
                 pattern="^[\p{L}\s']{1,30}$"
+                required
             />
 
             {/* add appropriate syntax for field */}
@@ -99,7 +100,8 @@ const EditForm = (props: EditFormProps) => {
                 name="quoteAuthor"
                 placeholder="Author of Quote"
                 defaultValue={props.profileCardState.quoteAuthor}
-                pattern="^[\p{L}\s']{1,30}$"
+                pattern="^[\p{L}\s']{1,50}$"
+                required
             />
 
             <label className={styles.label} htmlFor="link">
