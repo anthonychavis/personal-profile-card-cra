@@ -47,7 +47,11 @@ function Card(props: ProfileCardProps) {
                         quoteAuthor={profileCardState.quoteAuthor}
                         quoteURL={profileCardState.quoteURL}
                     />
-                    <button className={styles.btn} onClick={editBtn}>
+                    <button
+                        title="Edit Profile Card"
+                        className={styles.btn}
+                        onClick={editBtn}
+                    >
                         Edit Profile Card
                     </button>
                 </>

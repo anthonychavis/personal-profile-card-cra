@@ -116,15 +116,20 @@ const EditForm = (props: EditFormProps) => {
             />
 
             <div>
-                <button className={styles.btn} type="submit">
+                <button
+                    title="Update Profile Card"
+                    className={styles.btn}
+                    type="submit"
+                >
                     Update Profile Card
                 </button>
                 <button
+                    title="Discard Changes"
                     type="button"
                     onClick={e => handleDiscard(e, props)}
                     className={styles.btn}
                 >
-                    Discard Update
+                    Discard Changes
                 </button>
             </div>
         </form>
