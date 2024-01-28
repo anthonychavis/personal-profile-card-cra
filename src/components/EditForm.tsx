@@ -73,7 +73,6 @@ const EditForm = (props: EditFormProps) => {
                 name="bio"
                 placeholder="Bio"
                 defaultValue={props.profileCardState.bio}
-                // validate
             ></textarea>
 
             <label className={styles.label} htmlFor="quote">
@@ -87,7 +86,6 @@ const EditForm = (props: EditFormProps) => {
                 name="favQuote"
                 placeholder="Favorite Quote"
                 defaultValue={props.profileCardState.favQuote}
-                // validate
             ></textarea>
 
             <label className={styles.label} htmlFor="author">
