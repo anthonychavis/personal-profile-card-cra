@@ -110,11 +110,11 @@ const EditForm = (props: EditFormProps) => {
             <input
                 onChange={handleChange}
                 id="link"
-                type="text"
+                type="url"
                 name="quoteURL"
                 placeholder="URL where others can find the Quote"
                 defaultValue={props.profileCardState.quoteURL}
-                // pattern=""
+                pattern="https://.+"
             />
 
             <div>
