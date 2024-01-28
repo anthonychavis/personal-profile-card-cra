@@ -57,6 +57,7 @@ const EditForm = (props: EditFormProps) => {
                 name="firstName"
                 placeholder="First Name"
                 defaultValue={props.profileCardState.firstName}
+                pattern="^[\p{L}\s']{1,30}$"
             />
 
             {/* add appropriate syntax for field */}
@@ -71,6 +72,7 @@ const EditForm = (props: EditFormProps) => {
                 name="bio"
                 placeholder="Bio"
                 defaultValue={props.profileCardState.bio}
+                // validate
             ></textarea>
 
             <label className={styles.label} htmlFor="quote">
@@ -84,6 +86,7 @@ const EditForm = (props: EditFormProps) => {
                 name="favQuote"
                 placeholder="Favorite Quote"
                 defaultValue={props.profileCardState.favQuote}
+                // validate
             ></textarea>
 
             <label className={styles.label} htmlFor="author">
@@ -96,6 +99,7 @@ const EditForm = (props: EditFormProps) => {
                 name="quoteAuthor"
                 placeholder="Author of Quote"
                 defaultValue={props.profileCardState.quoteAuthor}
+                pattern="^[\p{L}\s']{1,30}$"
             />
 
             <label className={styles.label} htmlFor="link">
@@ -108,6 +112,7 @@ const EditForm = (props: EditFormProps) => {
                 name="quoteURL"
                 placeholder="URL where others can find the Quote"
                 defaultValue={props.profileCardState.quoteURL}
+                // pattern=""
             />
 
             <div>
