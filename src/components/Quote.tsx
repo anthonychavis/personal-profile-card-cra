@@ -18,7 +18,7 @@ function Quote({
             <figcaption>
                 {/* {quoteURL ? (
                     <cite>
-                        <a className={styles.wordWrap} href={quoteURL}>{quoteAuthor}</a>
+                        <a className={`${styles.wordWrap} ${styles.author}`} href={quoteURL}>{quoteAuthor}</a>
                     </cite>
                 ) : ( */}
                 <p className={`${styles.wordWrap} ${styles.author}`}>
